@@ -63,5 +63,62 @@
 			}
 		})
 		</script>
+
+		<div id="app5">
+			<p>{{message}}</p>			
+			<button v-on:click="reverseMessage">Inverser le message</button>
+		</div>
+		<script>
+		var app5 = new Vue({
+		    el: '#app5',
+		    data : {
+		    	message : 'Salut les mickeys !'
+		    },
+		    methods : {
+		    	reverseMessage:function() {
+		    	    this.message = this.message.split('').reverse().join('')
+		    	}
+		    }
+		})
+		</script>
+		<div id="app6">
+			<p>{{message}}</p>
+			<input v-model="message">
+		</div>
+		<script>
+		var app6 = new Vue({
+		    el: '#app6',
+		    data : {
+		    	message : 'Salut les mickeys !'
+		    }
+		})
+		</script>
+		<div id="app7">
+			<ol>
+				<parcourir-liste 
+					v-for="elt in listeDeMessages"
+					v-bind:element="elt" 
+					v-bind:key="elt.id" 
+				></parcourir-liste>
+			</ol>
+		</div>
+		<script>
+		Vue.component('parcourir-liste', {
+			props : ['element'],
+			template : '<li>{{element.text}}</li>'
+		})
+
+		var app7 = new Vue({
+			el:'#app7',
+			data: {
+				listeDeMessages:[
+					{id:0, text: "coucou0"},
+					{id:1, text: "coucou1"},
+					{id:2, text: "coucou2"}
+				]
+			}
+		})
+		</script>
+
 	</body>
 </html>
