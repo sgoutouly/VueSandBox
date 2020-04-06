@@ -1,2 +1,2 @@
 # VueSandBox
-Leraning Vue.js
+Learning Vue.js
